@@ -6,9 +6,9 @@ export default {
   format: "iife",
   moduleName: "template",
   dest: "template.js",
-  sourceMap: true,
+  sourceMap: 'inline',
   plugins: [
     nodeResolve({ jsnext: true }),
-    uglify(),
+   // uglify(), Turn back on uglify for production
   ]
 };
