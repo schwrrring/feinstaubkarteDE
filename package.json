@@ -18,5 +18,8 @@
     "rollup": "^0.41.6",
     "rollup-plugin-node-resolve": "^2.1.1",
     "rollup-plugin-uglify": "^1.0.2"
+  },
+  "devDependencies": {
+    "rollup-plugin-eslint": "^4.0.0"
   }
 }

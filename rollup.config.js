@@ -1,5 +1,5 @@
-var nodeResolve = require("rollup-plugin-node-resolve"),
-    uglify = require("rollup-plugin-uglify");
+import nodeResolve from "rollup-plugin-node-resolve";
+//    uglify = require("rollup-plugin-uglify");
 
 export default {
   entry: "src/index.js",
