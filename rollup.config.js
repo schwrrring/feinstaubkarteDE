@@ -1,6 +1,7 @@
 import nodeResolve from "rollup-plugin-node-resolve";
 //    uglify = require("rollup-plugin-uglify");
-
+//import babel from 'rollup-plugin-babel';
+import eslint from 'rollup-plugin-eslint';
 export default {
   entry: "src/index.js",
   format: "iife",
@@ -9,6 +10,17 @@ export default {
   sourceMap: 'inline',
   plugins: [
     nodeResolve({ jsnext: true }),
-   // uglify(), Turn back on uglify for production
+		eslint({
+      exclude: [
+        'src/styles/**',
+      ]
+    }),
+
+		/*activate if babel should be used			
+		*babel({
+		*	exclude: 'node_modules/**'
+		*})
+   */
+		// uglify(), Turn back on uglify for production
   ]
 };
