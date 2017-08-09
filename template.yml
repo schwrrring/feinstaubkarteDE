@@ -42,6 +42,19 @@ settings:
     description: A setting for changing a number # Optional description for the settings panel
     type: number # See available types above
 
+  - Section2  # Latitude wo die Karte hinfahren soll
+  - property: lat # Refers to a property in the template's state object
+    name: latitude map # Display name for the settings panel
+    description: A setting for changing a number # Optional description for the settings panel
+    type: number # See available types above
+
+  - property: long # Refers to a property in the template's state object
+    name: longitude map # Display name for the settings panel
+    description: A setting for changing a number # Optional description for the settings panel
+    type: number # See available types above
+
+
+
 data:
   # The data section determines how data is made available to your template,
   # and the sample data that is used. See the documentation.
