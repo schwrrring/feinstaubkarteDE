@@ -1,7 +1,7 @@
 # The 'id' should be a string that uniquely identifies your template
-id: ''
-name: Untitled template
-author: Unknown author
+id: 'leafletFeinstaub'
+name: Leaflet Feinstaub
+author: Malte Hildebrand 
 
 # This template is compatible with SDK version 2
 sdk_version: 2
