@@ -6,8 +6,18 @@ import {request} from 'd3-request';
  * 
  */
 export function getAPIData (url, callback){
- return	request(url)
+ 		request(url)
 		.get(callback);	
+		return true;		
 }
 
-//getAPIData('http://api.luftdaten.info/v1/statistics/', function(data){ console.log(data, 'getApiCall from getData')});
+export function getJSON (url, callback){
+ 		request(url)
+		.mimeType('application/json')
+    .response(function(xhr) { return JSON.parse(xhr.responseText); })
+		.get(callback);
+				console.log('das kommt an')
+		return true;
+}				
+
+getJSON("http://api.luftdaten.info/v1/now/?format=json", function(data){ console.log(data, 'getApiCall from getData')});
