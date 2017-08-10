@@ -9,9 +9,12 @@
     "flourish"
   ],
   "scripts": {
+		"test": "npm run -s test:build && npm run -s test:run",
+    "test:build": "rollup ./test/firstTest.js > ./test/bundle.js",
+    "test:run": "karma start",	
     "build": "rollup -c",
     "less": "lessc --plugin=less-plugin-clean-css --source-map less/style.less static/style.css"
-  },
+		  },
   "dependencies": {
     "d3-request": "^1.0.5",
     "less": "^2.7.2",

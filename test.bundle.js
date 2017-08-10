@@ -1,6 +1,6 @@
 function buildFakeGeoJson(nrOfPoint, nrOfDays){
 let FeatureCollectionTemplate =   {
-       "type": "FeatureCollection",
+       "type": "FeatureColection",
        "features": [{
            "type": "Feature",
            "geometry": {
@@ -26,7 +26,7 @@ describe("Testing the fake buildFakeGeoJson function", function() {
   it("should call the function and return something", function() {
 			
 		let retVal = buildFakeGeoJson(1,2);
-		expect(true).toBe(true);
+		expect(retVal).toBe(true);
   });
 });
 

@@ -1,4 +1,4 @@
-function buildFakeGeoJson(nrOfPoint, nrOfDays){
+export function buildFakeGeoJson(nrOfPoint, nrOfDays){
 let FeatureCollectionTemplate =   {
        "type": "FeatureCollection",
        "features": [{
@@ -18,22 +18,6 @@ let FeatureCollectionTemplate =   {
 							 ]
            }
        }]
-	};
+	}
 				return FeatureCollectionTemplate
 }
-
-describe("Testing the fake buildFakeGeoJson function", function() {
-  it("should call the function and return something", function() {
-			
-		let retVal = buildFakeGeoJson(1,2);
-		expect(true).toBe(true);
-  });
-});
-
-describe("", function() {
-  it("should call the function and return FeatureCollection", function() {
-			
-		let retVal = buildFakeGeoJson(1,2);
-		expect(retVal["type"]).toBe("FeatureCollection");
-  });
-});
