@@ -15,7 +15,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      
+      'https://unpkg.com/leaflet@1.2.0/dist/leaflet.js', 
       'test/bundle.js'
     ],
 

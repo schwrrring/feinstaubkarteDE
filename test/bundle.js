@@ -971,18 +971,27 @@ it("it should return long as nubers", function() {
 
 describe("Adding a mapID div to the testDom it should be selectable in the test", function() {
 	let map;
+	let head;			
   beforeEach(function(){
-    map = select('body').append("div").attr('id','malte');
+    map = select('body').append("div").attr('id','mapid');
 	});	
 		it("calls selects #mapid", function() {	
+		let retVal = select('body');
+		expect(Array.isArray(retVal._groups)).toBe(true);
+  });
+		it("calls loads L from leaflet", function() {	
 		//L.geoJSON(geojsonFeature, {
     //onEachFeature: onEachFeature
 		//}).addTo(map);
 		//let retVal = buildFakeGeoJson(1, 2, 0, 3, 0, 3);
-		let retVal = select('body');
-		expect(Array.isArray(retVal._groups)).toBe(true);
+		let retVal = false;
+					//myMap = L.map('mapid').setView([state.lat, state.long], 6);
+		if (L){retVal = true; console.log(L);}
+		expect(retVal).toBe(true);
   });
-	
+
+
+				
  afterEach(function(){
   // map.remove();
   // map = null;
