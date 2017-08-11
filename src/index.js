@@ -46,7 +46,7 @@ export function draw() {
         }).addTo(myMap);		
 				
 	var weekData = json( Flourish.static_prefix + '/oneWeekOneMeasurePerDay.json', function(data){
-					console.log(data);
-		L.geoJson(data).addTo(myMap);
+	console.log(data);
+	L.geoJson(data).addTo(myMap);
 	}) 	
 }
