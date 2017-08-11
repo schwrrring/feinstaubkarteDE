@@ -1,4 +1,4 @@
-reactivate, wenn getting data from the api
+//reactivate, wenn getting data from the api
 //import {getAPIData} from './getData.js';
 import { json } from 'd3-request'// is used to get data instead of using api
 //console.log(getAPIData, 'log von getAPIData nach import');
@@ -14,7 +14,7 @@ export var state = {
 	example_state_property: 25,
   // The current state of template. You can make some or all of the properties
   // of the state object available to the user as settings in settings.js.
-	lat: 53.505,
+	lat: 49.505,
 	long: 8.09			
 };
 
@@ -35,7 +35,7 @@ export function draw() {
 	//			console.log(2,myMap)
   // The draw function is called when the template first loads
 			//	console.log(L,"L");
-				myMap = L.map('mapid').setView([state.lat, state.long], 13);
+				myMap = L.map('mapid').setView([state.lat, state.long], 6);
 	//			console.log(22,myMap);
 					
 				L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -46,6 +46,7 @@ export function draw() {
         }).addTo(myMap);		
 				
 	var weekData = json( Flourish.static_prefix + '/oneWeekOneMeasurePerDay.json', function(data){
-									L.geoJson(weekData).addTo(myMap);
-}) 	
-						//}
+					console.log(data);
+		L.geoJson(data).addTo(myMap);
+	}) 	
+}

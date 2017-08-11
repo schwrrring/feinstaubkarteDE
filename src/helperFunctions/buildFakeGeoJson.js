@@ -3,10 +3,9 @@ import { writeFile } from 'fs'
 let oneWeek = buildFakeGeoJson(5093, 161, 1, 3, 1, 3);
 writeFile('./static/fakeDataOneWeek.json', JSON.stringify(oneWeek),()=> console.log('file written'));
 
-let oneDay = buildFakeGeoJson(5093, 24, 1, 3, 1, 3);
-let oneWeekOneMeasurePerDay = buildFakeGeoJson(5093, 1, 1, 3, 1, 3);
+let oneDay = buildFakeGeoJson(503, 24, 1, 3, 1, 3);
+let oneWeekOneMeasurePerDay = buildFakeGeoJson(59, 1, 1, 3, 1, 3);
 writeFile('./static/oneWeekOneMeasurePerDay.json', JSON.stringify(oneWeekOneMeasurePerDay),()=> console.log('file written'));
-
 
 export function buildFakeGeoJson(nrOfPoint, nrOfHours,valueXsMin, valueXsMax, valueSMin, valueSMax){
 let FeatureCollectionTemplate =   {
