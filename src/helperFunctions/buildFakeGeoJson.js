@@ -1,7 +1,11 @@
 
 import { writeFile } from 'fs' 
-let oneWeek = buildFakeGeoJson(53, 161, 1, 3, 1, 3);
-writeFile('./static/fakeDataOneWeek.json', JSON.stringify(oneWeek,0,4),()=> console.log('file written'));
+let oneWeek = buildFakeGeoJson(5093, 161, 1, 3, 1, 3);
+writeFile('./static/fakeDataOneWeek.json', JSON.stringify(oneWeek),()=> console.log('file written'));
+
+let oneDay = buildFakeGeoJson(5093, 24, 1, 3, 1, 3);
+let oneWeekOneMeasurePerDay = buildFakeGeoJson(5093, 1, 1, 3, 1, 3);
+writeFile('./static/oneWeekOneMeasurePerDay.json', JSON.stringify(oneWeekOneMeasurePerDay),()=> console.log('file written'));
 
 
 export function buildFakeGeoJson(nrOfPoint, nrOfHours,valueXsMin, valueXsMax, valueSMin, valueSMax){
@@ -16,8 +20,9 @@ let FeatureCollectionTemplate =   {
 						FeatureCollectionTemplate.features[i]['properties']['data'].push(
 							 {
 										'valueXs': randomBetweenAandB(valueXsMax, valueXsMin, 0),
-										'valueS': randomBetweenAandB(valueSMin, valueSMax, 0), 
-										'time': 1
+										'valueS': randomBetweenAandB(valueSMin, valueSMax, 0)
+											 //, 
+										//'time': 1
 							}
 						)
 		}				
@@ -33,7 +38,7 @@ export function returnPointFeature (latMin, latMax, longMin,longMax){
                "coordinates": [randomBetweenAandB(latMin,latMax,2), randomBetweenAandB(longMin, longMax, 2)]
            },
            "properties": {
-							 "id": 123,		 
+						//	 "id": 123,		 
                "data": [
 											
 							 ]

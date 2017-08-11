@@ -1,4 +1,6 @@
-import {getAPIData} from './getData.js';
+reactivate, wenn getting data from the api
+//import {getAPIData} from './getData.js';
+import { json } from 'd3-request'// is used to get data instead of using api
 //console.log(getAPIData, 'log von getAPIData nach import');
 
 export var data = {};
@@ -12,8 +14,8 @@ export var state = {
 	example_state_property: 25,
   // The current state of template. You can make some or all of the properties
   // of the state object available to the user as settings in settings.js.
-	lat: 51.505,
-	long: -0.09			
+	lat: 53.505,
+	long: 8.09			
 };
 
 export function update() {
@@ -39,7 +41,11 @@ export function draw() {
 				L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
             maxZoom: 18,
-            id: 'mapbox.streets',
+            id: 'mapbox.pencil',
             accessToken: 'pk.eyJ1IjoibHVuZGVsaXVzIiwiYSI6ImNpdWljbmV4eTAwM2Uyb21kczN6bndrb2kifQ.AXS9vjUNgfpx8zrAfNT2pw'
-        }).addTo(myMap);		  
-}
+        }).addTo(myMap);		
+				
+	var weekData = json( Flourish.static_prefix + '/oneWeekOneMeasurePerDay.json', function(data){
+									L.geoJson(weekData).addTo(myMap);
+}) 	
+						//}
