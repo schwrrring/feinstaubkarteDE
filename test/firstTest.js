@@ -1,7 +1,7 @@
 import { buildFakeGeoJson } from '../src/helperFunctions/buildFakeGeoJson.js';	
 import { returnPointFeature } from  '../src/helperFunctions/buildFakeGeoJson.js';	
 
-describe("Testing the fake buildFakeGeoJson function", function() {
+describe("Testing the buildFakeGeoJson function", function() {
   it("should call the function and return something", function() {
 			
 		let retVal = buildFakeGeoJson(1, 2, 0, 3, 0, 3);
@@ -55,4 +55,13 @@ describe("pointFeature", function() {
 			let retVal = returnPointFeature(53, 48, 7.9, 13.4);
 		expect(retVal['type']).toBe("Feature");
   });
+it("it should return lat as nubers", function() {
+			let retVal = returnPointFeature(53, 48, 7.9, 13.4);
+		expect(typeof(retVal['geometry']['coordinates'][0])).toBe('number');
+  });
+it("it should return long as nubers", function() {
+			let retVal = returnPointFeature(53, 48, 7.9, 13.4);
+		expect(typeof(retVal['geometry']['coordinates'][1])).toBe('number');
+  });
+
 });
