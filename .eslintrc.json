@@ -10,12 +10,6 @@
   "parserOptions": {
     "sourceType": "module"
   },
-	
-    "plugins": ["jasmine"],
-    "env": {
-        "jasmine": true
-    }
-	,
 
   "rules": {
  //   "indent": [

@@ -18,10 +18,6 @@ module.exports = function(config) {
       'https://unpkg.com/leaflet@1.2.0/dist/leaflet.js', 
       'test/bundle.js'
     ],
-		preprocessors: {
-    	'test/bundle.js': ['eslint']
-  	},
-
     // list of files to exclude
     exclude: [
     ],
