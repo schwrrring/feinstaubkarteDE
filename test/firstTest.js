@@ -2,6 +2,7 @@ import { buildFakeGeoJson } from '../src/helperFunctions/buildFakeGeoJson.js';
 import { returnPointFeature } from  '../src/helperFunctions/buildFakeGeoJson.js';	
 import { loadScript } from '../src/helperFunctions/loadScript.js';
 import { select } from '../node_modules/d3-selection/index.js';
+//import { sensorChart  } from '../src/sensorChart.js';
 
 describe("Testing the buildFakeGeoJson function", function() {
   it("should call the function and return something", function() {
@@ -78,13 +79,23 @@ describe("Adding a mapID div to the testDom it should be selectable in the test"
 		expect(retVal).toContain('leaflet-zoom-animated');
   });
 
-	it("calls selects #mapid", function() {	
-		let retVal = select('#mapid');
-		expect(Array.isArray(retVal._groups)).toBe(true);
-  });			
+//	it("calls selects #mapid", function() {	
+		
+		//L.geoJSON(geojsonFeature, {
+    //onEachFeature: onEachFeature
+		//}).addTo(map);
+		//let retVal = buildFakeGeoJson(1, 2, 0, 3, 0, 3);
+	//	let retval = 
+		//expect(Array.isArray(retVal._groups)).toBe(true);
+ // });			
  afterEach(function(){
 				 select('#mapid').remove();
   });				
 });
 
-
+describe("testing d3 funtion that adds popup for sensor", function() {
+	it("imports the function", function() {	
+	let	retVal = true;  // TODO: hier weiter machen sensorFunktion einfuegen und schauen, dass sie importiert wird, dann als naechstes based on die id, die mitgeliefert wird die daten holen, diese an sensorfunktion uebergeben und die funktion dann in der rechten Bildhaelfte anzeigen
+		expect(true).toBe(true);
+  });
+});

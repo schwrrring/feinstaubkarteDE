@@ -1,6 +1,7 @@
 //reactivate, wenn getting data from the api
 //import {getAPIData} from './getData.js';
 import { json } from 'd3-request'// is used to get data instead of using api
+import { select } from 'd3-selection'
 //console.log(getAPIData, 'log von getAPIData nach import');
 
 export var data = {};
@@ -45,8 +46,20 @@ export function draw() {
             accessToken: 'pk.eyJ1IjoibHVuZGVsaXVzIiwiYSI6ImNpdWljbmV4eTAwM2Uyb21kczN6bndrb2kifQ.AXS9vjUNgfpx8zrAfNT2pw'
         }).addTo(myMap);		
 				
+
 	var weekData = json( Flourish.static_prefix + '/oneWeekOneMeasurePerDay.json', function(data){
-	console.log(data);
-	L.geoJson(data).addTo(myMap);
+//	console.log(data);
+ function onEachFeature(feature, layer) {
+            layer.on({
+        
+                click: (e,b,c)=> {if(e.target._icon){ console.log(e,select(select(e.target._icon).node().parentNode).append('div').attr('id','malte'), 'icon'); }}
+            });
+          
+  }				
+	L.geoJson(data,
+	{
+					onEachFeature: onEachFeature			
+	}
+	).addTo(myMap);
 	}) 	
 }
