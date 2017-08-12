@@ -988,8 +988,6 @@ describe("Adding a mapID div to the testDom it should be selectable in the test"
             id: 'mapbox.pencil',
             accessToken: 'pk.eyJ1IjoibHVuZGVsaXVzIiwiYSI6ImNpdWljbmV4eTAwM2Uyb21kczN6bndrb2kifQ.AXS9vjUNgfpx8zrAfNT2pw'
         }).addTo(map); 
-
-
 		let retVal = select('.leaflet-tile-container')
 			.attr('class');
 		expect(retVal).toContain('leaflet-zoom-animated');

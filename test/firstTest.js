@@ -5,12 +5,10 @@ import { select } from '../node_modules/d3-selection/index.js';
 
 describe("Testing the buildFakeGeoJson function", function() {
   it("should call the function and return something", function() {
-			
 		let retVal = buildFakeGeoJson(1, 2, 0, 3, 0, 3);
 		expect(true).toBe(true);
   });
   it("should call the function and return FeatureCollection", function() {
-			
 		let retVal = buildFakeGeoJson(1,2, 0,3, 0, 3);
 		expect(retVal["type"]).toBe("FeatureCollection");
   })
@@ -42,7 +40,6 @@ describe("Testing randomBetweenAandB", function() {
 	});
 });
 
-
 describe("pointFeature", function() {
   it("should return a pointFeature", function() {
 			let retVal = returnPointFeature(53, 48, 7.9, 13.4);
@@ -64,11 +61,10 @@ describe("Adding a mapID div to the testDom it should be selectable in the test"
 			let	mapContainer = select('body').append('div').attr('id','mapid');
 			map = L.map('mapid'); 
 	});	
-		it("calls selects #mapid", function() {	
+	it("calls selects #mapid", function() {	
 		let retVal = select('#mapid');
 		expect(Array.isArray(retVal._groups)).toBe(true);
   });
-
 	it("it Sets the mapView and adds mapbox tilelayer", function() {
 		map.setView([53, 9], 6);
 		L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -77,22 +73,18 @@ describe("Adding a mapID div to the testDom it should be selectable in the test"
             id: 'mapbox.pencil',
             accessToken: 'pk.eyJ1IjoibHVuZGVsaXVzIiwiYSI6ImNpdWljbmV4eTAwM2Uyb21kczN6bndrb2kifQ.AXS9vjUNgfpx8zrAfNT2pw'
         }).addTo(map); 
-
-
 		let retVal = select('.leaflet-tile-container')
 			.attr('class');
 		expect(retVal).toContain('leaflet-zoom-animated');
   });
 
-		
+	it("calls selects #mapid", function() {	
+		let retVal = select('#mapid');
+		expect(Array.isArray(retVal._groups)).toBe(true);
+  });			
  afterEach(function(){
 				 select('#mapid').remove();
-				 //mapContainer = null;
-				 //map = null;
-  // map.remove();
-  // map = null;
   });				
 });
 
 
-				
