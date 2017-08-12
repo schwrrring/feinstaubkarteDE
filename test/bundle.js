@@ -944,7 +944,7 @@ describe("Testing randomBetweenAandB", function() {
 	});
 	it("given 3 and 5...", function() {
 		let retVal = randomBetweenAandB(3,5,0);
-					console.log(retVal);
+					//console.log(retVal);
 		expect(retVal>=3 && retVal<= 5).toBe(true);
 	});
 	it("given 4 and 9...", function() {	
@@ -970,29 +970,36 @@ it("it should return long as nubers", function() {
 });
 
 describe("Adding a mapID div to the testDom it should be selectable in the test", function() {
-	let map;
-	let head;			
+	var map;			
   beforeEach(function(){
-    map = select('body').append("div").attr('id','mapid');
+			let	mapContainer = select('body').append('div').attr('id','mapid');
+			map = L.map('mapid'); 
 	});	
 		it("calls selects #mapid", function() {	
-		let retVal = select('body');
+		let retVal = select('#mapid');
 		expect(Array.isArray(retVal._groups)).toBe(true);
   });
-		it("calls loads L from leaflet", function() {	
-		//L.geoJSON(geojsonFeature, {
-    //onEachFeature: onEachFeature
-		//}).addTo(map);
-		//let retVal = buildFakeGeoJson(1, 2, 0, 3, 0, 3);
-		let retVal = false;
-					//myMap = L.map('mapid').setView([state.lat, state.long], 6);
-		if (L){retVal = true; console.log(L);}
-		expect(retVal).toBe(true);
+
+	it("it Sets the mapView and adds mapbox tilelayer", function() {
+		map.setView([53, 9], 6);
+		L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox.pencil',
+            accessToken: 'pk.eyJ1IjoibHVuZGVsaXVzIiwiYSI6ImNpdWljbmV4eTAwM2Uyb21kczN6bndrb2kifQ.AXS9vjUNgfpx8zrAfNT2pw'
+        }).addTo(map); 
+
+
+		let retVal = select('.leaflet-tile-container')
+			.attr('class');
+		expect(retVal).toContain('leaflet-zoom-animated');
   });
 
-
-				
+		
  afterEach(function(){
+				 select('#mapid').remove();
+				 //mapContainer = null;
+				 //map = null;
   // map.remove();
   // map = null;
   });				
